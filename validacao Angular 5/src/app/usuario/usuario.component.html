@@ -1,0 +1,61 @@
+<div class="alert alert-danger col-10" *ngIf="usuarioExist">
+  Já existe um usuario com esse email!
+</div>
+
+<div class="alert alert-danger col-10" *ngIf="isCadastrado">
+    Cadastro realizado com sucesso!
+  </div>
+
+<form (ngSubmit)="cadastrar()">
+  <div class="form-group">
+    <label for="email" class="col-2 col-form-label">Email *</label>
+    <div class="col-10">
+      <input type="email" [(ngModel)]="usuario.email" name="email" id="email" class="form-control">
+    </div>
+    <div class="col-10" *ngIf="usuarioError.email">
+      <span class="text text-danger">{{usuarioError.email}}</span>
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="col-2 col-form-label">Nome *</label>
+        <div class="col-10">
+          <input type="nome" [(ngModel)]="usuario.nome" name="nome" id="nome" class="form-control">
+        </div>
+     </div>
+     <div class="col-10" *ngIf="usuarioError.nome">
+        <span class="text text-danger">{{usuarioError.nome}}</span>
+      </div>
+
+    <div class="form-group">
+        <label for="senha" class="col-2 col-form-label">Senha *</label>
+        <div class="col-10">
+          <input type="senha" [(ngModel)]="usuario.senha" name="senha" id="senha" class="form-control">
+        </div>
+     </div>
+     <div class="col-10" *ngIf="usuarioError.senha">
+        <span class="text text-danger">{{usuarioError.senha}}</span>
+      </div>
+
+     <div class="form-group">
+        <label for="idade" class="col-2 col-form-label">Idade *</label>
+        <div class="col-10">
+          <input type="idade" [(ngModel)]="usuario.idade" name="idade" id="idade" class="form-control">
+        </div>
+     </div> 
+     <div class="col-10" *ngIf="usuarioError.idade">
+        <span class="text text-danger">{{usuarioError.idade}}</span>
+      </div>
+
+     <div class="form-group">
+        <label for="telefone" class="col-2 col-form-label">Telefone *</label>
+        <div class="col-10">
+          <input type="telefone" [(ngModel)]="usuario.telefone" name="telefone" id="telefone" class="form-control">
+        </div>
+     </div>
+     <div class="col-10" *ngIf="usuarioError.telefone">
+        <span class="text text-danger">{{usuarioError.telefone}}</span>
+      </div>
+      <br>
+     <input type="submit" value="cadastrar" class="btn btn-success">
+      <br>  
+     * campos obrigatórios
